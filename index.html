@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Sprint_5</title>
   </head>
   <body>
-    <button class="next_joke_button" onclick="getJoke()">NEXT JOKE</button>
+    <div class="header">
+      <h1>Ready for jokes?</h1>
+    </div>
+    <div class="joke-container">
+      <h2 id = "joke"></h2>
+    </div>
+    <div class="container-button">
+      <button class="button-82-pushable" onclick="getJoke()">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text"> Button 82 </span>
+      </button>
+    </div>
+    <!--<button class="next_joke_button" onclick="getJoke()">NEXT JOKE</button>-->
     <script src="index.js"></script>
   </body>
 </html>
