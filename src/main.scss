@@ -1,3 +1,13 @@
 $primary: red;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+body{
+    margin:20px;
+}
+.emoji-smile{
+    height: 50px;
+}
+.joke-row{
+    height: 120px;
+}
