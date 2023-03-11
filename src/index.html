@@ -10,34 +10,41 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col mb-5">
           <h4>Widget weather</h4>
         </div>
       </div>
     </div>
-    <div class="container d-flex">
-      <div class="col-6">
-        <img class="primary-img" src="./images/lidya-nada-tXz6g8JYYoI-unsplash.jpg" />
-      </div>
-      <div class="col-6 text-center align-self-center">
-        <div class="card text-center">
-          <div class="card-body">
-            <h1 class="card-title">Ready for jokes?</h1>
-            <p class="card-text">
-              <img
-                src="./images/800px-Twemoji2_1f923.svg.png"
-                class="img-fluid emoji-smile ms-2"
-                alt="smile emoji picture"
-              />
-            </p>
-            <h2 id="joke"></h2>
-            <button type="button" class="btn btn-primary my-4" onclick="getJoke()">
-              NEXT JOKE
-            </button>
-
+    <div class="container">
+      <div class="row d-flex flex-wrap-reverse">
+        <div class="col-lg d-flex justify-content-center">
+          <img
+            class="img-fluid img-colorfull"
+            src="./images/lidya-nada-tXz6g8JYYoI-unsplash.jpg"
+          />
+        </div>
+        <div class="col-lg align-self-center">
+          <div class="card text-center">
+            <div class="card-body">
+              <h1 class="card-title">Ready for jokes?</h1>
+              <p class="card-text">
+                <img
+                  src="./images/800px-Twemoji2_1f923.svg.png"
+                  class="img-fluid emoji-smile ms-2"
+                  alt="smile emoji picture"
+                />
+              </p>
+              <h2 id="joke"></h2>
+              <button
+                type="button"
+                class="btn btn-primary my-4"
+                onclick="getJoke()"
+              >
+                NEXT JOKE
+              </button>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
 
