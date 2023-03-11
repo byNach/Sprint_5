@@ -31,6 +31,7 @@
                 <img
                   src="./images/800px-Twemoji2_1f923.svg.png"
                   class="img-fluid emoji-smile ms-2"
+                  class="img-fluid emoji-smile"
                   alt="smile emoji picture"
                 />
               </p>
@@ -42,12 +43,52 @@
               >
                 NEXT JOKE
               </button>
+              <h2 class="joke-api mb-5" id="joke"></h2>
+              <div class="row d-flex justify-content-evenly mb-2">
+                <img
+                  src="./images/enamorado.png"
+                  class="score_icons"
+                  id="score_1"
+                  style="display: none"
+                />
+                <img
+                  src="./images/confuso.png"
+                  class="score_icons"
+                  id="score_2"
+                  style="display: none"
+                />
+                <img
+                  src="./images/suspicaz.png"
+                  class="score_icons"
+                  id="score_3"
+                  style="display: none"
+                />
+              </div>
+              <div class="row d-flex justify-content-evenly">
+                <div class="col-3 ms-3" id="scoreText_1" style="display: none">
+                  <h5>Love</h5>
+                </div>
+                <div class="col-3" id="scoreText_2" style="display: none">
+                  <h5>Meh</h5>
+                </div>
+                <div class="col-3 me-4" id="scoreText_3" style="display: none">
+                  <h5>Joke not found</h5>
+                </div>
+              </div>
+              <div class="row">
+                <button
+                  type="button"
+                  class="btn btn-primary my-4"
+                  onclick="getJoke()"
+                >
+                  NEXT JOKE
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <script src="index.js"></script>
   </body>
 </html>
