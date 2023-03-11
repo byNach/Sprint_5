@@ -9,27 +9,35 @@
   </head>
   <body>
     <div class="container">
-      <div class="col d-flex align-items-center justify-content-center">
-        <h1 class="d-inline me-2">Ready for jokes?</h1>
-        <img
-          src="./images/800px-Twemoji2_1f923.svg.png"
-          class="img-fluid emoji-smile ms-2"
-          alt="smile emoji picture"
-        />
+      <div class="row">
+        <div class="col">
+          <h4>Widget weather</h4>
+        </div>
       </div>
     </div>
-    <div class="conatiner">
-      <div class="row joke-row d-flex align-content-center">
-        <div class="col text-center">
-          <h2 id="joke"></h2>
-        </div>
+    <div class="container d-flex">
+      <div class="col-6">
+        <img class="primary-img" src="./images/lidya-nada-tXz6g8JYYoI-unsplash.jpg" />
       </div>
-      <div class="row">
-        <div class="col text-center">
-          <button type="button" class="btn btn-primary" onclick="getJoke()">
-            NEXT JOKE
-          </button>
+      <div class="col-6 text-center align-self-center">
+        <div class="card text-center">
+          <div class="card-body">
+            <h1 class="card-title">Ready for jokes?</h1>
+            <p class="card-text">
+              <img
+                src="./images/800px-Twemoji2_1f923.svg.png"
+                class="img-fluid emoji-smile ms-2"
+                alt="smile emoji picture"
+              />
+            </p>
+            <h2 id="joke"></h2>
+            <button type="button" class="btn btn-primary my-4" onclick="getJoke()">
+              NEXT JOKE
+            </button>
+
+          </div>
         </div>
+
       </div>
     </div>
 
