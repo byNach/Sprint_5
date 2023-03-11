@@ -13,3 +13,9 @@ body{
     border-radius: 35px;
     border: 1px solid gray;
 }
+.score_icons{
+    width: 70px;
+}
+.score_icons:hover{
+    transform: scale(1.2);
+}
