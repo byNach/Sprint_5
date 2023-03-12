@@ -1,15 +1,16 @@
 "use strict";
+let actualJokeId = "";
 function getJoke() {
     fetch("https://icanhazdadjoke.com", {
         method: "GET",
-        headers: { Accept: "application/json" }, //este header está en la documentación de la API
+        headers: { Accept: "application/json" },
     })
         .then((res) => res.json())
         .then((data) => {
         if (data) {
             console.log(data);
+            actualJokeId = data.id;
             const joke = data.joke;
-            console.log(joke);
             const jokeInHtml = document.getElementById("joke");
             if (jokeInHtml) {
                 jokeInHtml.innerHTML = joke;
@@ -43,4 +44,28 @@ function showScoreIcons() {
     if (scoreText3) {
         scoreText3.style.display = "inline";
     }
+}
+const reportAcudits = [];
+function push_love() {
+    createJokeObject(3);
+}
+function push_meh() {
+    createJokeObject(2);
+}
+function push_notFound() {
+    createJokeObject(1);
+}
+class Joke_report {
+    constructor(id, score, date) {
+        this.id = id;
+        this.score = score;
+        this.date = date;
+    }
+}
+function createJokeObject(jokeScore) {
+    const actualDate = new Date();
+    const actualDateStr = actualDate.toISOString();
+    const jokeObject = new Joke_report(actualJokeId, jokeScore, actualDateStr);
+    reportAcudits.push(jokeObject);
+    console.log(reportAcudits);
 }
