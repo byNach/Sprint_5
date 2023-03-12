@@ -5,9 +5,9 @@ function getJoke(): void {
     headers: { Accept: "application/json" },
   })
     .then((res: Response) => res.json())
-    .then((data: { id: string, joke: string }) => {
+    .then((data: { id: string; joke: string }) => {
       if (data) {
-        console.log(data); 
+        console.log(data);
         actualJokeId = data.id;
         const joke: string = data.joke;
         const jokeInHtml = document.getElementById("joke");
@@ -47,15 +47,17 @@ function showScoreIcons(): void {
   }
 }
 
-const reportAcudits: any[] = [];
+const reportAcudits: any = [];
 
 function push_love(): void {
   createJokeObject(3);
 }
 function push_meh(): void {
-  createJokeObject(2);}
+  createJokeObject(2);
+}
 function push_notFound(): void {
-  createJokeObject(1);}
+  createJokeObject(1);
+}
 class Joke_report {
   id: string;
   score: number;
@@ -67,10 +69,26 @@ class Joke_report {
   }
 }
 
-function createJokeObject (jokeScore: number){
+function createJokeObject(jokeScore: number) {
   const actualDate = new Date();
   const actualDateStr: string = actualDate.toISOString();
-  const jokeObject: object = new Joke_report(actualJokeId, jokeScore, actualDateStr);
-  reportAcudits.push(jokeObject);
+  const jokeObject: object = new Joke_report(
+    actualJokeId,
+    jokeScore,
+    actualDateStr
+  );
+  changeScore(jokeObject);
+}
+
+function changeScore(jokeObject: any) {
+  if (reportAcudits.length > 0) {
+    if (reportAcudits.at(-1).id === jokeObject.id) {
+      reportAcudits.at(-1).score = jokeObject.score;
+    } else {
+      reportAcudits.push(jokeObject);
+    }
+  } else {
+    reportAcudits.push(jokeObject);
+  }
   console.log(reportAcudits);
 }

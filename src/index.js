@@ -66,6 +66,19 @@ function createJokeObject(jokeScore) {
     const actualDate = new Date();
     const actualDateStr = actualDate.toISOString();
     const jokeObject = new Joke_report(actualJokeId, jokeScore, actualDateStr);
-    reportAcudits.push(jokeObject);
+    changeScore(jokeObject);
+}
+function changeScore(jokeObject) {
+    if (reportAcudits.length > 0) {
+        if (reportAcudits.at(-1).id === jokeObject.id) {
+            reportAcudits.at(-1).score = jokeObject.score;
+        }
+        else {
+            reportAcudits.push(jokeObject);
+        }
+    }
+    else {
+        reportAcudits.push(jokeObject);
+    }
     console.log(reportAcudits);
 }
