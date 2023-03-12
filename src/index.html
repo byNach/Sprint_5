@@ -23,7 +23,7 @@
             src="./images/lidya-nada-tXz6g8JYYoI-unsplash.jpg"
           />
         </div>
-        <div class="col-lg align-self-center">
+        <div class="col-lg align-self-center mb-4">
           <div class="card text-center">
             <div class="card-body">
               <h1 class="card-title">Ready for jokes?</h1>
@@ -31,58 +31,55 @@
                 <img
                   src="./images/800px-Twemoji2_1f923.svg.png"
                   class="img-fluid emoji-smile ms-2"
-                  class="img-fluid emoji-smile"
                   alt="smile emoji picture"
                 />
               </p>
-              <h2 id="joke"></h2>
-              <button
-                type="button"
-                class="btn btn-primary my-4"
-                onclick="getJoke()"
-              >
-                NEXT JOKE
-              </button>
-              <h2 class="joke-api mb-5" id="joke"></h2>
+              <h3 class="joke-api my-5" id="joke"></h3>
               <div class="row d-flex justify-content-evenly mb-2">
                 <img
                   src="./images/enamorado.png"
                   class="score_icons"
                   id="score_1"
                   style="display: none"
+                  onclick="push_score_1()"
                 />
                 <img
                   src="./images/confuso.png"
                   class="score_icons"
                   id="score_2"
                   style="display: none"
+                  onclick="push_score_2()"
                 />
                 <img
                   src="./images/suspicaz.png"
                   class="score_icons"
                   id="score_3"
                   style="display: none"
+                  onclick="push_score_3()"
+
                 />
               </div>
               <div class="row d-flex justify-content-evenly">
-                <div class="col-3 ms-3" id="scoreText_1" style="display: none">
+                <div class="col-3 Love" id="scoreText_1" style="display: none">
                   <h5>Love</h5>
                 </div>
-                <div class="col-3" id="scoreText_2" style="display: none">
+                <div class="col-3 Meh" id="scoreText_2" style="display: none">
                   <h5>Meh</h5>
                 </div>
-                <div class="col-3 me-4" id="scoreText_3" style="display: none">
+                <div class="col-3 JokeNotFound" id="scoreText_3" style="display: none">
                   <h5>Joke not found</h5>
                 </div>
               </div>
-              <div class="row">
-                <button
-                  type="button"
-                  class="btn btn-primary my-4"
-                  onclick="getJoke()"
-                >
-                  NEXT JOKE
-                </button>
+              <div class="row getJoke-button">
+                <div class="col">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="getJoke()"
+                  >
+                    NEXT JOKE
+                  </button>
+                </div>
               </div>
             </div>
           </div>
