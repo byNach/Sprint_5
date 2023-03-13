@@ -1,7 +1,6 @@
 //DAD or CHUCK
-function dadOrChuck() {
-  const randNum = Math.floor(Math.random() * 10) + 1;
-  console.log(randNum);
+function dadOrChuck(): void {
+  const randNum: number = Math.floor(Math.random() * 10) + 1;
   if (randNum <= 5) {
     getFirstJoke();
   } else {
@@ -11,6 +10,7 @@ function dadOrChuck() {
 // GET first joke from API
 
 let actualJokeId: string = "";
+
 function getFirstJoke(): void {
   fetch("https://icanhazdadjoke.com", {
     method: "GET",
@@ -19,11 +19,10 @@ function getFirstJoke(): void {
     .then((res: Response) => res.json())
     .then((data: { id: string; joke: string }) => {
       if (data) {
-        console.log(data);
+        console.log(data.joke);
         actualJokeId = data.id;
-        console.log(actualJokeId);        
         const joke: string = data.joke;
-        const jokeInHtml = document.getElementById("joke");
+        const jokeInHtml: HTMLElement | null = document.getElementById("joke");
         if (jokeInHtml) {
           jokeInHtml.innerHTML = joke;
         }
@@ -34,6 +33,7 @@ function getFirstJoke(): void {
 
 // GET second joke from API
 let actualSecondJokeId: string = "";
+
 function getSecondJoke() {
   const url = `https://api.chucknorris.io/jokes/random`;
   const headers = {
@@ -44,7 +44,7 @@ function getSecondJoke() {
     method: "GET",
     headers: headers,
   })
-    .then((response) => {
+    .then((response: Response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -52,12 +52,10 @@ function getSecondJoke() {
     })
     .then((data: { id: string; value: string }) => {
       if (data) {
-        console.log(data);
         actualJokeId = data.id;
-        console.log(actualJokeId);
-        
+        console.log(data.value);
         const joke: string = data.value;
-        const jokeInHtml = document.getElementById("joke");
+        const jokeInHtml: HTMLElement | null = document.getElementById("joke");
         if (jokeInHtml) {
           jokeInHtml.innerHTML = joke;
         }
@@ -67,12 +65,12 @@ function getSecondJoke() {
 }
 
 // GET html elements
-const scoreIcon1 = document.getElementById("score_1");
-const scoreIcon2 = document.getElementById("score_2");
-const scoreIcon3 = document.getElementById("score_3");
-const scoreText1 = document.getElementById("scoreText_1");
-const scoreText2 = document.getElementById("scoreText_2");
-const scoreText3 = document.getElementById("scoreText_3");
+const scoreIcon1: HTMLElement | null = document.getElementById("score_1");
+const scoreIcon2: HTMLElement | null = document.getElementById("score_2");
+const scoreIcon3: HTMLElement | null = document.getElementById("score_3");
+const scoreText1: HTMLElement | null = document.getElementById("scoreText_1");
+const scoreText2: HTMLElement | null = document.getElementById("scoreText_2");
+const scoreText3: HTMLElement | null = document.getElementById("scoreText_3");
 
 //Function SHOW icons and text on html
 function showScoreIcons(): void {
@@ -134,7 +132,7 @@ function createJokeObject(jokeScore: number) {
 }
 
 // Function to permit change score
-function changeScore(jokeObject: any) {
+function changeScore(jokeObject: any): void {
   if (reportAcudits.length > 0) {
     if (reportAcudits.at(-1).id === jokeObject.id) {
       reportAcudits.at(-1).score = jokeObject.score;
@@ -146,3 +144,26 @@ function changeScore(jokeObject: any) {
   }
   console.log(reportAcudits);
 }
+
+// GET weather from API
+fetch(
+  "https://api.openweathermap.org/data/2.5/weather?lat=41.38&lon=2.15&appid=fbeae517988f06759018ec31a9f312e4&units=metric",
+  {
+    method: "GET",
+    headers: { Accept: "application/json" },
+  }
+)
+  .then((res: Response) => res.json())
+  .then((data: any) => {
+    if (data) {
+      const tempInHtml: HTMLElement | null = document.getElementById("temp");
+      const weatherInHtml: HTMLElement | null =
+        document.getElementById("weather");
+      if (tempInHtml) {
+        tempInHtml.innerHTML = `Temp: ` + data.main.temp + `ºC`;
+      }
+      if (weatherInHtml) {
+        weatherInHtml.innerHTML = `Weather: ` + data.weather[0].description;
+      }
+    }
+  });

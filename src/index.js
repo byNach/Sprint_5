@@ -2,7 +2,6 @@
 //DAD or CHUCK
 function dadOrChuck() {
     const randNum = Math.floor(Math.random() * 10) + 1;
-    console.log(randNum);
     if (randNum <= 5) {
         getFirstJoke();
     }
@@ -20,9 +19,8 @@ function getFirstJoke() {
         .then((res) => res.json())
         .then((data) => {
         if (data) {
-            console.log(data);
+            console.log(data.joke);
             actualJokeId = data.id;
-            console.log(actualJokeId);
             const joke = data.joke;
             const jokeInHtml = document.getElementById("joke");
             if (jokeInHtml) {
@@ -51,9 +49,8 @@ function getSecondJoke() {
     })
         .then((data) => {
         if (data) {
-            console.log(data);
             actualJokeId = data.id;
-            console.log(actualJokeId);
+            console.log(data.value);
             const joke = data.value;
             const jokeInHtml = document.getElementById("joke");
             if (jokeInHtml) {
@@ -132,3 +129,21 @@ function changeScore(jokeObject) {
     }
     console.log(reportAcudits);
 }
+// GET weather from API
+fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.38&lon=2.15&appid=fbeae517988f06759018ec31a9f312e4&units=metric", {
+    method: "GET",
+    headers: { Accept: "application/json" },
+})
+    .then((res) => res.json())
+    .then((data) => {
+    if (data) {
+        const tempInHtml = document.getElementById("temp");
+        const weatherInHtml = document.getElementById("weather");
+        if (tempInHtml) {
+            tempInHtml.innerHTML = `Temp: ` + data.main.temp + ` ºC`;
+        }
+        if (weatherInHtml) {
+            weatherInHtml.innerHTML = `Weather: ` + data.weather[0].description;
+        }
+    }
+});
