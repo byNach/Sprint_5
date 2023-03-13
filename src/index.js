@@ -1,7 +1,18 @@
 "use strict";
-// GET joke
+//DAD or CHUCK
+function dadOrChuck() {
+    const randNum = Math.floor(Math.random() * 10) + 1;
+    console.log(randNum);
+    if (randNum <= 5) {
+        getFirstJoke();
+    }
+    else {
+        getSecondJoke();
+    }
+}
+// GET first joke from API
 let actualJokeId = "";
-function getJoke() {
+function getFirstJoke() {
     fetch("https://icanhazdadjoke.com", {
         method: "GET",
         headers: { Accept: "application/json" },
@@ -21,6 +32,38 @@ function getJoke() {
     });
     showScoreIcons();
 }
+// GET second joke from API
+let actualSecondJokeId = "";
+function getSecondJoke() {
+    const url = `https://api.chucknorris.io/jokes/random`;
+    const headers = {
+        "Content-Type": "application/json",
+    };
+    fetch(url, {
+        method: "GET",
+        headers: headers,
+    })
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+        .then((data) => {
+        if (data) {
+            console.log(data);
+            actualJokeId = data.id;
+            console.log(actualJokeId);
+            const joke = data.value;
+            const jokeInHtml = document.getElementById("joke");
+            if (jokeInHtml) {
+                jokeInHtml.innerHTML = joke;
+            }
+        }
+    });
+    showScoreIcons();
+}
+// GET html elements
 const scoreIcon1 = document.getElementById("score_1");
 const scoreIcon2 = document.getElementById("score_2");
 const scoreIcon3 = document.getElementById("score_3");
