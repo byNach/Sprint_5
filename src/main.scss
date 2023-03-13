@@ -13,3 +13,15 @@ body{
     border-radius: 35px;
     border: 1px solid gray;
 }
+.score_icons{
+    width: 70px;
+}
+.score_icons:hover{
+    transform: scale(1.2);
+}
+.Love{
+    padding-left: 50px;
+}
+.JokeNotFound{
+    padding-right: 45px;
+}
