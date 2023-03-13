@@ -4,6 +4,8 @@
  * Copyright 2011-2022 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Ubuntu:wght@700&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11726,6 +11728,22 @@ textarea.form-control-lg {
 }
 body {
   margin: 50px;
+  background-color: darkslategray;
+}
+
+h1, .h1 {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h3, .h3 {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h4, .h4 {
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 .emoji-smile {
@@ -11736,17 +11754,25 @@ body {
   border-radius: 45px;
 }
 
+.general-card-box {
+  padding-inline: 40px;
+}
+
 .card {
   border-radius: 35px;
-  border: 1px solid gray;
 }
 
 .score_icons {
   width: 70px;
+  cursor: pointer;
 }
 
 .score_icons:hover {
   transform: scale(1.2);
+}
+
+.score_icons:active {
+  transform: scale(0.8);
 }
 
 .Love {
@@ -11755,4 +11781,40 @@ body {
 
 .JokeNotFound {
   padding-right: 45px;
+}
+
+.button a {
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  width: 50%;
+  text-align: center;
+  text-decoration: none;
+  background-color: #fd0ae9;
+  display: block;
+  position: relative;
+  padding: 20px 40px;
+  text-shadow: 0px 1px 0px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #7700a5;
+  border-radius: 20px;
+}
+
+.button a:active {
+  top: 10px;
+  background-color: #fba80d;
+  box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.button:after {
+  content: "";
+  width: 100%;
+  padding: 4px;
+  position: absolute;
+  bottom: -15px;
+  left: -4px;
+  z-index: -1;
+  border-radius: 5px;
 }/*# sourceMappingURL=main.css.map */

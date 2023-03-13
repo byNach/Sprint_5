@@ -1,7 +1,17 @@
 "use strict";
-// GET joke
+//DAD or CHUCK
+function dadOrChuck() {
+    const randNum = Math.floor(Math.random() * 10) + 1;
+    if (randNum <= 5) {
+        getFirstJoke();
+    }
+    else {
+        getSecondJoke();
+    }
+}
+// GET first joke from API
 let actualJokeId = "";
-function getJoke() {
+function getFirstJoke() {
     fetch("https://icanhazdadjoke.com", {
         method: "GET",
         headers: { Accept: "application/json" },
@@ -9,9 +19,8 @@ function getJoke() {
         .then((res) => res.json())
         .then((data) => {
         if (data) {
-            console.log(data);
+            console.log(data.joke);
             actualJokeId = data.id;
-            console.log(actualJokeId);
             const joke = data.joke;
             const jokeInHtml = document.getElementById("joke");
             if (jokeInHtml) {
@@ -21,6 +30,37 @@ function getJoke() {
     });
     showScoreIcons();
 }
+// GET second joke from API
+let actualSecondJokeId = "";
+function getSecondJoke() {
+    const url = `https://api.chucknorris.io/jokes/random`;
+    const headers = {
+        "Content-Type": "application/json",
+    };
+    fetch(url, {
+        method: "GET",
+        headers: headers,
+    })
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    })
+        .then((data) => {
+        if (data) {
+            actualJokeId = data.id;
+            console.log(data.value);
+            const joke = data.value;
+            const jokeInHtml = document.getElementById("joke");
+            if (jokeInHtml) {
+                jokeInHtml.innerHTML = joke;
+            }
+        }
+    });
+    showScoreIcons();
+}
+// GET html elements
 const scoreIcon1 = document.getElementById("score_1");
 const scoreIcon2 = document.getElementById("score_2");
 const scoreIcon3 = document.getElementById("score_3");
@@ -89,3 +129,21 @@ function changeScore(jokeObject) {
     }
     console.log(reportAcudits);
 }
+// GET weather from API
+fetch("https://api.openweathermap.org/data/2.5/weather?lat=41.38&lon=2.15&appid=fbeae517988f06759018ec31a9f312e4&units=metric", {
+    method: "GET",
+    headers: { Accept: "application/json" },
+})
+    .then((res) => res.json())
+    .then((data) => {
+    if (data) {
+        const tempInHtml = document.getElementById("temp");
+        const weatherInHtml = document.getElementById("weather");
+        if (tempInHtml) {
+            tempInHtml.innerHTML = `Temp: ` + data.main.temp + ` ºC`;
+        }
+        if (weatherInHtml) {
+            weatherInHtml.innerHTML = `Weather: ` + data.weather[0].description;
+        }
+    }
+});

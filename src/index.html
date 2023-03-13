@@ -13,14 +13,12 @@
     <title>Sprint_5</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container mb-4">
       <div class="row">
-        <h4>Temp Max:</h4>
-        <h4 id="tempMax"></h4>
+        <h4 id="temp"></h4>
       </div>
       <div class="row">
-        <h4>Temp Min:</h4>
-        <h4 id="tempMin"></h4>
+        <h4 id="weather"></h4>
       </div>
     </div>
     <div class="container">
@@ -31,7 +29,7 @@
             src="./images/lidya-nada-tXz6g8JYYoI-unsplash.jpg"
           />
         </div>
-        <div class="col-lg align-self-center mb-4">
+        <div class="general-card-box col-lg align-self-center mb-4">
           <div class="card text-center">
             <div class="card-body">
               <h1 class="card-title">Ready for jokes?</h1>
@@ -81,15 +79,11 @@
                   <h5>Joke not found</h5>
                 </div>
               </div>
-              <div class="row getJoke-button">
-                <div class="col">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="getJoke()"
-                  >
-                    NEXT JOKE
-                  </button>
+              <div class="row">
+                <div class="col-lg">
+                    <div class="button d-flex justify-content-center" onclick="dadOrChuck()">
+                      <a href="#">Next JOKE!</a>
+                  </div>
                 </div>
               </div>
             </div>
