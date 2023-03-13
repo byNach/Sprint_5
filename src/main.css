@@ -4,6 +4,8 @@
  * Copyright 2011-2022 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Ubuntu:wght@700&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -11726,6 +11728,22 @@ textarea.form-control-lg {
 }
 body {
   margin: 50px;
+  background-color: darkslategray;
+}
+
+h1, .h1 {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h3, .h3 {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h4, .h4 {
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 .emoji-smile {
@@ -11736,9 +11754,12 @@ body {
   border-radius: 45px;
 }
 
+.general-card-box {
+  padding-inline: 40px;
+}
+
 .card {
   border-radius: 35px;
-  border: 1px solid gray;
 }
 
 .score_icons {

@@ -1,27 +1,53 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Ubuntu:wght@700&display=swap');
 
-body{
-    margin:50px;
+body {
+    margin: 50px;
+    background-color: darkslategray;
 }
-.emoji-smile{
+
+h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+h3 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+h4 {
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.emoji-smile {
     height: 50px;
 }
-.img-colorfull{
+
+.img-colorfull {
     border-radius: 45px;
 }
-.card{
-    border-radius: 35px;
-    border: 1px solid gray;
+
+.general-card-box {
+    padding-inline: 40px;
 }
-.score_icons{
+
+.card {
+    border-radius: 35px;
+}
+
+.score_icons {
     width: 70px;
 }
-.score_icons:hover{
+
+.score_icons:hover {
     transform: scale(1.2);
 }
-.Love{
+
+.Love {
     padding-left: 50px;
 }
-.JokeNotFound{
+
+.JokeNotFound {
     padding-right: 45px;
 }
