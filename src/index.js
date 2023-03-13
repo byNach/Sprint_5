@@ -1,4 +1,5 @@
 "use strict";
+// GET joke
 let actualJokeId = "";
 function getJoke() {
     fetch("https://icanhazdadjoke.com", {
@@ -10,6 +11,7 @@ function getJoke() {
         if (data) {
             console.log(data);
             actualJokeId = data.id;
+            console.log(actualJokeId);
             const joke = data.joke;
             const jokeInHtml = document.getElementById("joke");
             if (jokeInHtml) {
@@ -25,6 +27,7 @@ const scoreIcon3 = document.getElementById("score_3");
 const scoreText1 = document.getElementById("scoreText_1");
 const scoreText2 = document.getElementById("scoreText_2");
 const scoreText3 = document.getElementById("scoreText_3");
+//Function SHOW icons and text on html
 function showScoreIcons() {
     if (scoreIcon1) {
         scoreIcon1.style.display = "inline";
@@ -45,6 +48,7 @@ function showScoreIcons() {
         scoreText3.style.display = "inline";
     }
 }
+//PUSH scores and joke on array
 const reportAcudits = [];
 function push_love() {
     createJokeObject(3);
@@ -55,6 +59,7 @@ function push_meh() {
 function push_notFound() {
     createJokeObject(1);
 }
+// Class Joke
 class Joke_report {
     constructor(id, score, date) {
         this.id = id;
@@ -62,12 +67,14 @@ class Joke_report {
         this.date = date;
     }
 }
+// Function to create a Joke Object with joke ID, SCORE, DATE
 function createJokeObject(jokeScore) {
     const actualDate = new Date();
     const actualDateStr = actualDate.toISOString();
     const jokeObject = new Joke_report(actualJokeId, jokeScore, actualDateStr);
     changeScore(jokeObject);
 }
+// Function to permit change score
 function changeScore(jokeObject) {
     if (reportAcudits.length > 0) {
         if (reportAcudits.at(-1).id === jokeObject.id) {
